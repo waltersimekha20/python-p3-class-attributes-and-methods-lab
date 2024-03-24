@@ -2,16 +2,14 @@
 
 from song import Song
 
-Song.count = 0
-Song.genre_count = {}
-Song.artist_count = {}
-
 class TestSong:
     '''Class "Song" in song.py'''
 
-    Song("99 Problems", "Jay Z", "Rap")
-    Song("Halo", "Beyonce", "Pop")
-    Song("Smells Like Teen Spirit", "Nirvana", "Rock")
+    @classmethod
+    def setup_class(cls):
+        cls.song1 = Song("99 Problems", "Jay Z", "Rap")
+        cls.song2 = Song("Halo", "Beyonce", "Pop")
+        cls.song3 = Song("Smells Like Teen Spirit", "Nirvana", "Rock")
 
     def test_saves_name_artist_genre(self):
         '''instantiates with a name, artist, and genre.'''
